@@ -3,8 +3,8 @@ package com.example.brochureapp.data.repository
 import com.example.brochureapp.common.Resource
 import com.example.brochureapp.data.mappers.mapToContent
 import com.example.brochureapp.data.remote.BrochureApi
-import com.example.brochureapp.domain.entities.ContentTypes
 import com.example.brochureapp.domain.entities.Content
+import com.example.brochureapp.domain.entities.ContentTypes
 import com.example.brochureapp.domain.repository.BrochureRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

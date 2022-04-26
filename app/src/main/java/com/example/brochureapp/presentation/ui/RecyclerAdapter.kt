@@ -37,12 +37,15 @@ class RecyclerAdapter(private val content: List<Content>) :
 
         private var view: View = v
         private var content: Content? = null
+
         init {
             v.setOnClickListener(this)
         }
+
         override fun onClick(v: View) {
 
         }
+
         fun buildContent(content: Content) {
             this.content = content
             val circularProgressDrawable = CircularProgressDrawable(view.context)

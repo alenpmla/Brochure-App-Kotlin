@@ -19,6 +19,7 @@ class HomeScreenViewModel @Inject constructor(private val repository: BrochureRe
 
     private var contentListLiveData: MutableLiveData<List<Content>> = MutableLiveData(emptyList())
     private var isLoadingLiveData: MutableLiveData<Boolean> = MutableLiveData(true)
+
     init {
         Log.e("HomeScreenViewModel", "init run")
         viewModelScope.launch {

@@ -8,8 +8,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.brochureapp.domain.entities.ContentTypes
 import com.example.brochureapp.domain.entities.Content
+import com.example.brochureapp.domain.entities.ContentTypes
 import com.example.brochureapp.presentation.ui.RecyclerAdapter
 import com.example.brochureapp.presentation.viewmodel.HomeScreenViewModel
 import dagger.hilt.android.AndroidEntryPoint
