@@ -14,27 +14,26 @@ class MappersKtTest {
     fun setUp() {
         sampleMap = mapOf(
             "brochureImage" to "brochureImage",
-            "distance" to 3.34,
-            "id" to 44.4,
+            "distance" to 3,
+            "id" to 1623228491,
             "title" to "Item Title",
             "retailer" to mapOf(
-                "id" to 34.34,
+                "id" to 23,
                 "name" to "Alen",
             ),
         )
     }
 
     @Test
-    fun `is mapToContent returns an instance of Content`() = runBlocking {
+    fun `is mapToContent method returns an instance of Content`() = runBlocking {
         assertThat(
             sampleMap.mapToContent(contentType = "brochure")
         ).isInstanceOf(Content::class.java)
     }
 
     @Test
-    fun `is mapToContent returns Content with valid data`() = runBlocking {
-
-        val content:Content = sampleMap.mapToContent(contentType = "brochure");
+    fun `is mapToContent method returns Content with valid data`() = runBlocking {
+        val content: Content = sampleMap.mapToContent(contentType = "brochure");
         assertThat(
             content.brochureImage
         ).isEqualTo(sampleMap["brochureImage"])

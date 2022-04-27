@@ -92,11 +92,11 @@ class BrochureRepositoryImplTest {
         adFormat = "Any",
         content = mapOf(
             "brochureImage" to "brochureImage",
-            "distance" to 3.34,
-            "id" to 44.4,
+            "distance" to 4,
+            "id" to 1623228491,
             "title" to "Item Title",
             "retailer" to mapOf(
-                "id" to 34.34,
+                "id" to 23,
                 "name" to "Alen",
             ),
         ),
