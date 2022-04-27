@@ -6,8 +6,8 @@
 
 * Dagger Hilt is used for dependency injection
 
-*Clean architecture is used in this app
+* Clean architecture is used in this app
 
-*Unit test cases for repository is written with junit 4 and for assertion google truth library is used. 
+* Unit test cases for repository is written with junit 4 and for assertion google truth library is used. 
 
-*View model with live data is used in the app. 
+* View model with live data is used in the app. 
