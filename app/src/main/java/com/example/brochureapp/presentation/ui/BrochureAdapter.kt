@@ -11,19 +11,19 @@ import com.example.brochureapp.domain.entities.Content
 import kotlinx.android.synthetic.main.single_item.view.*
 
 
-class RecyclerAdapter(private val content: List<Content>) :
-    RecyclerView.Adapter<RecyclerAdapter.ContentHolder>() {
+class BrochureAdapter(private val content: List<Content>) :
+    RecyclerView.Adapter<BrochureAdapter.BrochureHolder>() {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ContentHolder {
+    ): BrochureHolder {
         val inflatedView = parent.inflate(R.layout.single_item, false)
-        return ContentHolder(inflatedView)
+        return BrochureHolder(inflatedView)
     }
 
-    override fun onBindViewHolder(holder: ContentHolder, position: Int) {
+    override fun onBindViewHolder(holder: BrochureHolder, position: Int) {
         val itemPhoto = content[position]
         holder.buildContent(itemPhoto)
     }
@@ -33,7 +33,7 @@ class RecyclerAdapter(private val content: List<Content>) :
     }
 
 
-    class ContentHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    class BrochureHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
 
         private var view: View = v
         private var content: Content? = null

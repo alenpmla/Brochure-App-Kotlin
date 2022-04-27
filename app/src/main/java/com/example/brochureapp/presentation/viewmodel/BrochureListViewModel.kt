@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class HomeScreenViewModel @Inject constructor(private val repository: BrochureRepository) :
+class BrochureListViewModel @Inject constructor(private val repository: BrochureRepository) :
     ViewModel() {
 
     private var contentListLiveData: MutableLiveData<List<Content>> = MutableLiveData(emptyList())

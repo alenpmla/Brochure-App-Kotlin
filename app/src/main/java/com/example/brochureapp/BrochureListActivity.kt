@@ -2,7 +2,6 @@ package com.example.brochureapp
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,17 +9,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.brochureapp.domain.entities.Content
 import com.example.brochureapp.domain.entities.ContentTypes
-import com.example.brochureapp.presentation.ui.RecyclerAdapter
-import com.example.brochureapp.presentation.viewmodel.HomeScreenViewModel
+import com.example.brochureapp.presentation.ui.BrochureAdapter
+import com.example.brochureapp.presentation.viewmodel.BrochureListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class BrochureListActivity : AppCompatActivity() {
     private lateinit var gridLayoutManager: LinearLayoutManager
-    private lateinit var adapter: RecyclerAdapter
+    private lateinit var adapter: BrochureAdapter
     private var contentList: MutableList<Content> = mutableListOf()
-    private val viewModel: HomeScreenViewModel by viewModels()
+    private val viewModel: BrochureListViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         recyclerView.layoutManager = gridLayoutManager
-        adapter = RecyclerAdapter(contentList)
+        adapter = BrochureAdapter(contentList)
         recyclerView.adapter = adapter
 
         observeViewModelChanges()
