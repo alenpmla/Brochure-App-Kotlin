@@ -54,7 +54,7 @@ class RecyclerAdapter(private val content: List<Content>) :
             circularProgressDrawable.setColorSchemeColors(
                 ContextCompat.getColor(
                     view.context,
-                    R.color.white
+                    android.R.color.holo_blue_dark
                 )
             )
             circularProgressDrawable.start()

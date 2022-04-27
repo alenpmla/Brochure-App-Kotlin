@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(myToolBar)
+        supportActionBar?.setDisplayShowTitleEnabled(false);
+
         val orientation = resources.configuration.orientation
         val totalSpanCount = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 3 else 2
         gridLayoutManager = GridLayoutManager(this, totalSpanCount)
