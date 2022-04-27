@@ -63,6 +63,11 @@ class MainActivity : AppCompatActivity() {
                 View.INVISIBLE
         }
 
+        viewModel.getErrorLiveData().observe(this) { isError ->
+            if (isError) errorView.visibility = View.VISIBLE else errorView.visibility =
+                View.INVISIBLE
+        }
+
     }
 
 

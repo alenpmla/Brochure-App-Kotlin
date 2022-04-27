@@ -18,6 +18,7 @@ class HomeScreenViewModel @Inject constructor(private val repository: BrochureRe
 
     private var contentListLiveData: MutableLiveData<List<Content>> = MutableLiveData(emptyList())
     private var isLoadingLiveData: MutableLiveData<Boolean> = MutableLiveData(true)
+    private var isError: MutableLiveData<Boolean> = MutableLiveData(false)
 
     init {
         viewModelScope.launch {
@@ -34,10 +35,13 @@ class HomeScreenViewModel @Inject constructor(private val repository: BrochureRe
                     when (result) {
                         is Resource.Success -> {
                             result.data?.let { listings ->
+                                isError.value = false
                                 contentListLiveData.value = listings
                             }
                         }
-                        is Resource.Error -> Unit
+                        is Resource.Error -> {
+                            isError.value = true
+                        }
                         is Resource.Loading -> {
                             isLoadingLiveData.value = result.isLoading
                         }
@@ -52,5 +56,9 @@ class HomeScreenViewModel @Inject constructor(private val repository: BrochureRe
 
     fun getProgressLiveData(): LiveData<Boolean> {
         return isLoadingLiveData
+    }
+
+    fun getErrorLiveData(): LiveData<Boolean> {
+        return isError
     }
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Brochure App</string>
     <string name="text_not_available">Not Available</string>
+    <string name="text_error">Failed to fetch data</string>
 </resources>
