@@ -61,7 +61,8 @@ class RecyclerAdapter(private val content: List<Content>) :
             Glide.with(view.context)
                 .load(content.brochureImage)
                 .placeholder(circularProgressDrawable)
-                .into(view.itemImage);
+                .error(R.drawable.image_error_place_holder)
+                .into(view.itemImage)
             view.retailerName.text =
                 content.retailer?.name ?: view.context.getText(R.string.text_not_available)
         }
