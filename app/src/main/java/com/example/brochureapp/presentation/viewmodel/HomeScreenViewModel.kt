@@ -1,6 +1,5 @@
 package com.example.brochureapp.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +20,6 @@ class HomeScreenViewModel @Inject constructor(private val repository: BrochureRe
     private var isLoadingLiveData: MutableLiveData<Boolean> = MutableLiveData(true)
 
     init {
-        Log.e("HomeScreenViewModel", "init run")
         viewModelScope.launch {
             getBrochureListings()
         }

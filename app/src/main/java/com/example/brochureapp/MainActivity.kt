@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyItemRangeInserted(0, contents.size)
         }
         viewModel.getProgressLiveData().observe(this) { isProgress ->
-            Log.w("getProgressLiveData", isProgress.toString())
             if (isProgress) progressBar.visibility = View.VISIBLE else progressBar.visibility =
                 View.INVISIBLE
         }
