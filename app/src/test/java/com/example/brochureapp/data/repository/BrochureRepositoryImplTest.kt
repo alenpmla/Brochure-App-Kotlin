@@ -16,18 +16,18 @@ import org.mockito.kotlin.mock
 import java.io.IOException
 
 class BrochureRepositoryImplTest {
-    private lateinit var mockBookService: BrochureApi
+    private lateinit var mockBrochureApi: BrochureApi
     private lateinit var repository: BrochureRepositoryImpl
 
     @Before
     fun setUp() {
-        mockBookService = mock()
-        repository = BrochureRepositoryImpl(mockBookService)
+        mockBrochureApi = mock()
+        repository = BrochureRepositoryImpl(mockBrochureApi)
     }
 
     @Test
     fun `is loading is true on getBrochureData`() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData()).thenReturn(null)
+        Mockito.`when`(mockBrochureApi.getBrochureData()).thenReturn(null)
         val firstItem = repository
             .getAllBrochures().first()
         assertThat((firstItem as Resource.Loading).isLoading).isEqualTo(true)
@@ -35,7 +35,7 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `is loading is false after getBrochureData`() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData()).thenReturn(null)
+        Mockito.`when`(mockBrochureApi.getBrochureData()).thenReturn(null)
         val secondItem = repository
             .getAllBrochures().drop(1).first()
         assertThat((secondItem as Resource.Loading).isLoading).isEqualTo(false)
@@ -43,7 +43,7 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `Resource state should be error when there is an exception `() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData())
+        Mockito.`when`(mockBrochureApi.getBrochureData())
             .doAnswer { throw IOException() }
         val secondItem = repository
             .getAllBrochures().drop(1).first()
@@ -52,7 +52,7 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `After an error, Loading should be false`() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData())
+        Mockito.`when`(mockBrochureApi.getBrochureData())
             .doAnswer { throw IOException() }
         val thirdItem = repository
             .getAllBrochures().drop(2).first()
@@ -61,7 +61,7 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `Return valid content item, if data is available`() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData()).thenReturn(successResponse)
+        Mockito.`when`(mockBrochureApi.getBrochureData()).thenReturn(successResponse)
         val secondItem = repository
             .getAllBrochures().drop(1).first()
         assertThat((secondItem as Resource.Success).data?.size).isEqualTo(contentsList.size)
@@ -69,7 +69,7 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `loading state should set as failed after the success response`() = runBlocking {
-        Mockito.`when`(mockBookService.getBrochureData()).thenReturn(successResponse)
+        Mockito.`when`(mockBrochureApi.getBrochureData()).thenReturn(successResponse)
         val thirdItem = repository
             .getAllBrochures().drop(2).first()
         assertThat((thirdItem as Resource.Loading).isLoading).isFalse()
