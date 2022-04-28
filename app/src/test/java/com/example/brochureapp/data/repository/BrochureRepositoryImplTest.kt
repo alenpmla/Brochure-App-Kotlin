@@ -35,8 +35,6 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `is loading is false after getBrochureData`() = runBlocking {
-        val mockBookService: BrochureApi = mock()
-        val repository = BrochureRepositoryImpl(mockBookService)
         Mockito.`when`(mockBookService.getBrochureData()).thenReturn(null)
         val secondItem = repository
             .getAllBrochures().drop(1).first()
@@ -45,8 +43,6 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `Resource state should be error when there is an exception `() = runBlocking {
-        val mockBookService: BrochureApi = mock()
-        val repository = BrochureRepositoryImpl(mockBookService)
         Mockito.`when`(mockBookService.getBrochureData())
             .doAnswer { throw IOException() }
         val secondItem = repository
@@ -56,8 +52,6 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `After an error, Loading should be false`() = runBlocking {
-        val mockBookService: BrochureApi = mock()
-        val repository = BrochureRepositoryImpl(mockBookService)
         Mockito.`when`(mockBookService.getBrochureData())
             .doAnswer { throw IOException() }
         val thirdItem = repository
@@ -67,8 +61,6 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `Return valid content item, if data is available`() = runBlocking {
-        val mockBookService: BrochureApi = mock()
-        val repository = BrochureRepositoryImpl(mockBookService)
         Mockito.`when`(mockBookService.getBrochureData()).thenReturn(successResponse)
         val secondItem = repository
             .getAllBrochures().drop(1).first()
@@ -77,8 +69,6 @@ class BrochureRepositoryImplTest {
 
     @Test
     fun `loading state should set as failed after the success response`() = runBlocking {
-        val mockBookService: BrochureApi = mock()
-        val repository = BrochureRepositoryImpl(mockBookService)
         Mockito.`when`(mockBookService.getBrochureData()).thenReturn(successResponse)
         val thirdItem = repository
             .getAllBrochures().drop(2).first()
